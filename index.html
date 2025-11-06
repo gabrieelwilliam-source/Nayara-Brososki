@@ -11,8 +11,8 @@
 <style>
   :root{
     --bg1: #0f0f10;
-    --accent: #f06da6;
-    --accent-2:#ffb6d5;
+    --accent: #97320a;
+    --accent-2:#dd845a;
     --card:#111214;
     --muted:#bfc2c6;
     --white:#ffffff;
@@ -29,7 +29,6 @@
     position:relative;
   }
 
-  /* Canvas de partículas */
   canvas#bgParticles{
     position:fixed;
     top:0;
@@ -67,11 +66,63 @@
     color:var(--bg1);
     padding:12px 20px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
     box-shadow:0 8px 30px rgba(240,109,166,0.12);
+    transition:all 0.3s ease;
   }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,109,166,0.25);}
   .btn.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
 
-  .hero-right{border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
-  .hero-right img{height:100%;object-fit:cover;width:100%;display:block}
+  /* Novo botão de anamnese */
+  .btn-form {
+    background: linear-gradient(90deg, #dd845a, #97320a);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(255, 79, 129, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .btn-form:hover {
+    background: linear-gradient(90deg, #97320a, #dd845a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 35px rgba(255, 79, 129, 0.4);
+  }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-right img {
+    width: 360px;
+    max-width: 90%;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+
+  @media (max-width: 768px) {
+    .hero-right img {
+      width: 280px;
+    }
+    .hero-cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-cta .btn, .hero-cta .btn.secondary, .hero-cta .btn-form {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-right img {width: 220px;}
+    .hero-left h1{font-size:28px}
+  }
 
   section{margin-top:44px}
   .section-title{font-size:22px;color:var(--accent);margin-bottom:8px}
@@ -122,7 +173,6 @@
     .gallery .item{width:100%}
     .services{flex-direction:column}
     header{flex-direction:column;gap:10px;align-items:center}
-    .hero-left h1{font-size:28px}
     .booking{flex-direction:column;align-items:stretch}
     .footer-grid{flex-direction:column;align-items:center;text-align:center}
     .wh-fab{right:12px;bottom:12px;padding:12px}
@@ -132,192 +182,115 @@
 
 <body>
 
-  <!-- Canvas animado -->
-  <canvas id="bgParticles"></canvas>
+<canvas id="bgParticles"></canvas>
 
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="Logo">
-        <div>
-          <h1><div class="brand">Nayara Brososki</div></h1>
-          <div style="color:var(--muted);font-size:15px">Salão • Estética • Beleza</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato" class="btn">Agendar</a>
-      </nav>
-    </header>
-
-    <main class="hero">
-      <div class="hero-left">
-        <h1>Beleza que transforma</h1>
-        <p>Atendimento profissional, técnicas modernas e carinho em cada detalhe. Agende seu horário e venha viver a experiência.</p>
-        <div class="hero-cta">
-          <button class="btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Agendar agora</button>
-          <a class="btn secondary" href="#galeria">Ver Trabalhos</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <img src="hero.jpg" alt="Foto destaque do salão / serviço">
-      </div>
-    </main>
-
-    <!-- resto igual -->
-    <section id="sobre">
-      <div class="section-title">Quem somos</div>
-      <p class="section-desc">Salão especializado em cortes, coloração, tratamentos e estética avançada — resultado com técnica e cuidado.</p>
-    </section>
-
-    <section id="servicos">
-      <div class="section-title">Serviços</div>
-      <p class="section-desc">Principais procedimentos, com pacotes e atendimento personalizado.</p>
-      <div class="services">
-        <div class="service"><h4>Cortes & Styling</h4><p>Consultoria de estilo, corte preciso e finalização profissional.</p></div>
-        <div class="service"><h4>Coloração & Mechas</h4><p>Técnicas modernas, tonalização saudável e cuidados pós-processo.</p></div>
-        <div class="service"><h4>Estética Facial & Corpo</h4><p>Limpeza, tratamentos e protocolos para melhorar textura e viço.</p></div>
-      </div>
-    </section>
-
-    <section id="galeria">
-      <div class="section-title">Antes / Depois</div>
-      <p class="section-desc">Trabalhos reais — resultados que falam por si.</p>
-      <div class="gallery">
-        <div class="item"><img src="antes1.jpg" alt="antes/depois 1"></div>
-        <div class="item"><img src="antes2.jpg" alt="antes/depois 2"></div>
-        <div class="item"><img src="antes3.jpg" alt="antes/depois 3"></div>
-      </div>
-    </section>
-
-    <section id="depoimentos">
-      <div class="section-title">Depoimentos</div>
-      <div class="testimonials">
-        <div class="testi"><strong>Mariana</strong> Adorei o atendimento, profissionalismo e resultado. Super recomendo!</div>
-        <div class="testi"><strong>Paula</strong> O corte e a cor ficaram perfeitos — serviço impecável e equipe atenciosa.</div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="section-title">Agende seu horário</div>
-      <div class="booking">
-        <div class="info">
-          <h3>Pronto para uma transformação?</h3>
-          <p style="color:var(--muted);margin-top:6px">Clique no botão ao lado para conversar via WhatsApp e reservar seu horário.</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2Fmessage%2FV4ZQSJW4D524K1%3Ffbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnKCR5t2Ls3CPnpgxfND6fwzfxzLpIbA-uFYgON2BQ2VbIIAgeywUxckTPP0k_aem_JWWfMqzNTgzGO88k6MsDRA&e=AT3qLEhaO2GB-l4ixjgR97U5EY8lEeCW9spUCDDD8lFBSKduMKBo24WcKbihIxO074shRjzMUCKEf0DcOUh7c7xiiugk1uRzb8VfedncnFNO37xKZyuFxDBpLw" target="_blank">Falar no WhatsApp</a>
-          <a class="btn secondary" href="https://www.instagram.com/nayarabrososki/" target="_blank">Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-  <div class="footer-grid">
-    <div>
-      <div style="font-weight:700">Nayara Brososki • Salão</div>
-      <div style="color:var(--muted);margin-top:6px">
-        📍 Endereço exemplo • (47) 9 9629-2854 • ✉️ contato@exemplo.com
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <div>
+        <h1><div class="brand">Nayara Brososki</div></h1>
+        <div style="color:var(--muted);font-size:15px">Salão • Estética • Beleza</div>
       </div>
     </div>
-    <div class="socials">
-      <a href="https://www.instagram.com/nayarabrososki/" target="_blank" title="Instagram">
-        IG
-      </a>
-      <a href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2Fmessage%2FV4ZQSJW4D524K1" target="_blank" title="WhatsApp">
-        WA
-      </a>
-      <a 
-  href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" 
-  target="_blank" 
-  class="btn"
-  style="padding:14px 24px;
-         font-size:16px;
-         background:linear-gradient(90deg,var(--accent),var(--accent-2));
-         color:var(--bg1);
-         font-weight:600;
-         text-decoration:none;
-         border-radius:12px;
-         box-shadow:0 5px 15px rgba(240,109,166,0.25);
-         display:inline-flex;
-         align-items:center;
-         justify-content:center;
-         gap:8px;
-         min-width:200px;
-         text-align:center;">
-  📝 Anamnese Capilar
-</a>
+    <nav>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato" class="btn">Agendar</a>
+    </nav>
+  </header>
 
+  <main class="hero">
+    <div class="hero-left">
+      <h1>Beleza que transforma</h1>
+      <p>Atendimento profissional, técnicas modernas e carinho em cada detalhe. Agende seu horário e venha viver a experiência.</p>
+      <div class="hero-cta">
+        <button class="btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Agendar agora</button>
+        <a class="btn secondary" href="#galeria">Ver Trabalhos</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" target="_blank" class="btn-form">Anamnese</a>
+      </div>
     </div>
-  </div>
-</footer>
+    <div class="hero-right">
+      <img src="Nay_capa-Photoroom.png" alt="Foto destaque do salão / serviço">
+    </div>
+  </main>
 
-  </div>
+  <!-- resto igual -->
+  <section id="sobre">
+    <div class="section-title">Quem somos</div>
+    <p class="section-desc">Salão especializado em cortes, coloração, tratamentos e estética avançada — resultado com técnica e cuidado.</p>
+  </section>
 
-  <a class="wh-fab" href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2Fmessage%2FV4ZQSJW4D524K1%3Ffbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnKCR5t2Ls3CPnpgxfND6fwzfxzLpIbA-uFYgON2BQ2VbIIAgeywUxckTPP0k_aem_JWWfMqzNTgzGO88k6MsDRA&e=AT3qLEhaO2GB-l4ixjgR97U5EY8lEeCW9spUCDDD8lFBSKduMKBo24WcKbihIxO074shRjzMUCKEf0DcOUh7c7xiiugk1uRzb8VfedncnFNO37xKZyuFxDBpLw" target="_blank">WhatsApp</a>
+  <section id="servicos">
+    <div class="section-title">Serviços</div>
+    <p class="section-desc">Principais procedimentos, com pacotes e atendimento personalizado.</p>
+    <div class="services">
+      <div class="service"><h4>Cortes & Styling</h4><p>Consultoria de estilo, corte preciso e finalização profissional.</p></div>
+      <div class="service"><h4>Coloração & Mechas</h4><p>Técnicas modernas, tonalização saudável e cuidados pós-processo.</p></div>
+      <div class="service"><h4>Imagem & Identidade</h4><p>Auxílio para realçar sua beleza de forma autêntica e estratégica.</p></div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="section-title">Antes / Depois</div>
+    <p class="section-desc">Trabalhos reais — resultados que falam por si.</p>
+    <div class="gallery">
+      <div class="item"><img src="IMG_5216 (1).jpg" alt="antes/depois 1"></div>
+      <div class="item"><img src="70692087-570E-4020-BB8B-6AD773D45105.jpg" alt="antes/depois 2"></div>
+      <div class="item"><img src="D066BF8F-CF80-4689-A5FC-76DE717AFC91.jpg" alt="antes/depois 3"></div>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <div class="section-title">Depoimentos</div>
+    <div class="testimonials">
+      <div class="testi"><strong>Mariana</strong> Adorei o atendimento, profissionalismo e resultado. Super recomendo!</div>
+      <div class="testi"><strong>Paula</strong> O corte e a cor ficaram perfeitos — serviço impecável e equipe atenciosa.</div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="section-title">Agende seu horário</div>
+    <div class="booking">
+      <div class="info">
+        <h3>Pronto para uma transformação?</h3>
+        <p style="color:var(--muted);margin-top:6px">Se já fez a anamnese e ficou com alguma dúvida, chama no whats.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">Chamar no WhatsApp</a>
+        <a class="btn secondary" href="https://www.instagram.com/nayarabrososki/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div style="font-weight:700">Nayara Brososki • Salão</div>
+        <div style="color:var(--muted);margin-top:6px">
+          📍 R: Serra Azul - 131 • (47) 9 9629-2854 • ✉️ nayarabrososki@gmail.com
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+</div>
+
+<a class="wh-fab" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">WhatsApp</a>
 
 <script>
-  // Animação de partículas no fundo
-  const canvas = document.getElementById("bgParticles");
-  const ctx = canvas.getContext("2d");
-  let particlesArray;
-
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-
-  window.addEventListener("resize", function(){
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-    init();
-  });
-
-  class Particle {
-    constructor(x,y,dirX,dirY,size,color){
-      this.x=x;this.y=y;
-      this.dirX=dirX;this.dirY=dirY;
-      this.size=size;this.color=color;
-    }
-    draw(){
-      ctx.beginPath();
-      ctx.arc(this.x,this.y,this.size,0,Math.PI*2,false);
-      ctx.fillStyle=this.color;
-      ctx.fill();
-    }
-    update(){
-      if(this.x>canvas.width||this.x<0){this.dirX=-this.dirX;}
-      if(this.y>canvas.height||this.y<0){this.dirY=-this.dirY;}
-      this.x+=this.dirX;
-      this.y+=this.dirY;
-      this.draw();
-    }
-  }
-
-  function init(){
-    particlesArray=[];
-    let numberOfParticles=(canvas.height*canvas.width)/20000;
-    for(let i=0;i<numberOfParticles;i++){
-      let size=(Math.random()*1.5)+0.5;
-      let x=Math.random()*(innerWidth-size*2);
-      let y=Math.random()*(innerHeight-size*2);
-      let dirX=(Math.random()*0.3)-0.15;
-      let dirY=(Math.random()*0.3)-0.15;
-      let color="rgba(255,182,213,0.6)";
-      particlesArray.push(new Particle(x,y,dirX,dirY,size,color));
-    }
-  }
-
-  function animate(){
-    requestAnimationFrame(animate);
-    ctx.clearRect(0,0,innerWidth,innerHeight);
-    for(let i=0;i<particlesArray.length;i++){particlesArray[i].update();}
-  }
-
-  init();
-  animate();
+const canvas = document.getElementById("bgParticles");
+const ctx = canvas.getContext("2d");
+let particlesArray;
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+window.addEventListener("resize", ()=>{canvas.width=innerWidth;canvas.height=innerHeight;init();});
+class Particle{constructor(x,y,dx,dy,s,c){this.x=x;this.y=y;this.dx=dx;this.dy=dy;this.s=s;this.c=c;}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle=this.c;ctx.fill();}update(){if(this.x>canvas.width||this.x<0)this.dx=-this.dx;if(this.y>canvas.height||this.y<0)this.dy=-this.dy;this.x+=this.dx;this.y+=this.dy;this.draw();}}
+function init(){particlesArray=[];let n=(canvas.height*canvas.width)/20000;for(let i=0;i<n;i++){let s=(Math.random()*1.5)+0.5,x=Math.random()*innerWidth,y=Math.random()*innerHeight,dx=(Math.random()*0.3)-0.15,dy=(Math.random()*0.3)-0.15;particlesArray.push(new Particle(x,y,dx,dy,s,"rgba(255,182,213,0.6)"));}}
+function animate(){requestAnimationFrame(animate);ctx.clearRect(0,0,innerWidth,innerHeight);for(let p of particlesArray)p.update();}
+init();animate();
 </script>
 
 </body>
 </html>
-
