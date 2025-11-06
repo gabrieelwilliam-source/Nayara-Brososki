@@ -11,8 +11,8 @@
 <style>
   :root{
     --bg1: #0f0f10;
-    --accent: #97320a;
-    --accent-2:#dd845a;
+    --accent: #582515;
+    --accent-2:#d49446;
     --card:#111214;
     --muted:#bfc2c6;
     --white:#ffffff;
@@ -61,19 +61,10 @@
   .hero-left h1{font-size:40px;line-height:1.05;margin-bottom:12px;color:var(--accent)}
   .hero-left p{color:var(--muted);margin-bottom:18px}
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-  .btn{
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    color:var(--bg1);
-    padding:12px 20px;border-radius:10px;font-weight:700;border:none;cursor:pointer;
-    box-shadow:0 8px 30px rgba(240,109,166,0.12);
-    transition:all 0.3s ease;
-  }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,109,166,0.25);}
-  .btn.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.06)}
 
-  /* Novo botão de anamnese */
+  /* Estilo unificado dos três botões */
   .btn-form {
-    background: linear-gradient(90deg, #dd845a, #97320a);
+    background: linear-gradient(90deg, #d49446, #582515);
     color: #fff;
     padding: 12px 20px;
     border-radius: 10px;
@@ -81,10 +72,13 @@
     text-decoration: none;
     box-shadow: 0 8px 25px rgba(255, 79, 129, 0.25);
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
   }
 
   .btn-form:hover {
-    background: linear-gradient(90deg, #97320a, #dd845a);
+    background: linear-gradient(90deg, #582515, #d49446 );
     transform: translateY(-2px);
     box-shadow: 0 10px 35px rgba(255, 79, 129, 0.4);
   }
@@ -113,7 +107,7 @@
       flex-direction: column;
       align-items: stretch;
     }
-    .hero-cta .btn, .hero-cta .btn.secondary, .hero-cta .btn-form {
+    .hero-cta .btn-form {
       width: 100%;
       text-align: center;
     }
@@ -197,7 +191,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
       <a href="#depoimentos">Depoimentos</a>
-      <a href="#contato" class="btn">Agendar</a>
+      <a href="#contato" class="btn-form">Agendar</a>
     </nav>
   </header>
 
@@ -206,9 +200,9 @@
       <h1>Beleza que transforma</h1>
       <p>Atendimento profissional, técnicas modernas e carinho em cada detalhe. Agende seu horário e venha viver a experiência.</p>
       <div class="hero-cta">
-        <button class="btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Agendar agora</button>
-        <a class="btn secondary" href="#galeria">Ver Trabalhos</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" target="_blank" class="btn-form">Anamnese</a>
+        <button class="btn-form" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Agendar agora</button>
+        <a class="btn-form" href="#galeria">Ver Trabalhos</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" target="_blank" class="btn-form">Fazer Anamnese</a>
       </div>
     </div>
     <div class="hero-right">
@@ -258,8 +252,8 @@
         <p style="color:var(--muted);margin-top:6px">Se já fez a anamnese e ficou com alguma dúvida, chama no whats.</p>
       </div>
       <div class="actions">
-        <a class="btn" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">Chamar no WhatsApp</a>
-        <a class="btn secondary" href="https://www.instagram.com/nayarabrososki/" target="_blank">Instagram</a>
+        <a class="btn-form" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">Chamar no WhatsApp</a>
+        <a class="btn-form" href="https://www.instagram.com/nayarabrososki/" target="_blank">Instagram</a>
       </div>
     </div>
   </section>
@@ -272,12 +266,9 @@
           📍 R: Serra Azul - 131 • (47) 9 9629-2854 • ✉️ nayarabrososki@gmail.com
         </div>
       </div>
-      
     </div>
   </footer>
 </div>
-
-<a class="wh-fab" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">WhatsApp</a>
 
 <script>
 const canvas = document.getElementById("bgParticles");
