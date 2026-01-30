@@ -81,30 +81,60 @@
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
   .btn-form {
-  display: inline-block;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #d49446, #582515);
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #d49446, #582515);
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
 
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
+  .btn-form:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-form:focus, .btn-form:active { outline: none; }
 
-.btn-form:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
+  /* CTA Checkout (Kiwify) */
+  .btn-checkout{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding: 13px 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), #f0a76b);
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 16px 40px rgba(212,148,70,0.22), 0 10px 30px rgba(0,0,0,0.35);
+    transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  }
 
-.btn-form:focus,
-.btn-form:active {
-  outline: none;
-}
+  .btn-checkout::after{
+    content:"→";
+    font-weight:700;
+    opacity:0.9;
+    transform: translateX(0);
+    transition: transform .2s ease;
+  }
 
+  .btn-checkout:hover{
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow: 0 18px 46px rgba(212,148,70,0.26), 0 12px 34px rgba(0,0,0,0.38);
+  }
+
+  .btn-checkout:hover::after{ transform: translateX(4px); }
+  .btn-checkout:active{ transform: translateY(0); }
+  .btn-checkout:focus-visible{
+    outline: 3px solid rgba(212,148,70,0.55);
+    outline-offset: 3px;
+  }
 
   .hero-right {
     display: flex;
@@ -172,7 +202,7 @@
   }
   .booking .info{flex:1}
   .booking .info h3{color:var(--accent);margin-bottom:6px}
-  .booking .actions{display:flex;gap:12px}
+  .booking .actions{display:flex;gap:12px;flex-wrap:wrap}
 
   footer{margin-top:50px;padding:28px;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
   .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
@@ -193,12 +223,159 @@
   }
   .anim.in { opacity:1; transform: translateY(0) scale(1) }
 
+  /* =========================
+     SEÇÃO CURSO (Kiwify)
+     ========================= */
+  .course{
+    position:relative;
+    background: linear-gradient(180deg, rgba(212,148,70,0.10), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    overflow:hidden;
+    transition: transform .28s var(--ease), box-shadow .28s var(--ease);
+    will-change: transform, box-shadow;
+  }
+
+  .course::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background: radial-gradient(circle at 20% 0%, rgba(212,148,70,0.22), rgba(0,0,0,0) 55%);
+    pointer-events:none;
+  }
+
+  .course.hov{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  }
+
+  .course-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:18px;
+    align-items:start;
+  }
+
+  .course h3{
+    margin-top:10px;
+    font-size:22px;
+    line-height:1.2;
+    color: var(--white);
+  }
+
+  .course-lead{
+    margin-top:10px;
+    color: var(--muted);
+    font-size:14px;
+    line-height:1.6;
+    max-width: 720px;
+  }
+
+  .course-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:8px;
+  }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--white);
+    font-size:12px;
+    font-weight:600;
+  }
+
+  .badge .dot{
+    width:7px;
+    height:7px;
+    border-radius:999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(212,148,70,0.12);
+  }
+
+  .course-list{
+    list-style:none;
+    margin-top:14px;
+    display:grid;
+    gap:10px;
+  }
+
+  .course-list li{
+    color: var(--muted);
+    font-size:14px;
+    line-height:1.5;
+    padding-left:26px;
+    position:relative;
+  }
+
+  .course-list li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    color: var(--accent);
+    font-weight:800;
+  }
+
+  .course-ctas{
+    margin-top:16px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .course-note{
+    margin-top:10px;
+    font-size:12px;
+    color: rgba(255,255,255,0.60);
+  }
+
+  .course-side-card{
+    background: rgba(17,18,20,0.72);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding:16px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+  }
+
+  .course-side-title{
+    font-weight:800;
+    color: var(--accent);
+    margin-bottom:10px;
+    letter-spacing:0.2px;
+  }
+
+  .course-side-items{
+    display:grid;
+    gap:10px;
+    color: var(--muted);
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+
+  .course-side-mini{
+    margin-top:10px;
+    font-size:12px;
+    color: rgba(255,255,255,0.60);
+  }
+
   /* Responsiveness */
   @media (max-width: 980px){
     .hero{grid-template-columns:1fr;gap:18px}
     .hero-right{order:-1}
     .gallery .item img{height:180px}
     .gallery .item{width:48%}
+    .course-grid{ grid-template-columns:1fr; }
   }
   @media (max-width:540px){
     .wrap{padding:16px}
@@ -233,6 +410,7 @@
     <nav id="mainNav" aria-label="Menu principal">
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
+      <a href="#curso">Curso</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#contato" class="btn-form">Agendar</a>
       <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
@@ -244,9 +422,12 @@
       <h1>Beleza que transforma</h1>
       <p>Atendimento profissional, técnicas modernas e carinho em cada detalhe. Agende seu horário e venha viver a experiência.</p>
       <div class="hero-cta">
+        <a class="btn-checkout" href="https://pay.kiwify.com.br/KyA9nHg" target="_blank" rel="noopener noreferrer">
+          Acessar curso
+        </a>
         <button class="btn-form" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Agendar agora</button>
         <a class="btn-form" href="#galeria">Ver Trabalhos</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" target="_blank" class="btn-form">Fazer avaliação</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdaw-L_xmedVBw1oNr99Hr9Hzm8qxTXwiite9DDzCo54D-PcA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-form">Fazer avaliação</a>
       </div>
     </div>
     <div class="hero-right">
@@ -259,6 +440,70 @@
   <section id="sobre" class="anim">
     <div class="section-title">Quem somos</div>
     <p class="section-desc">Salão especializado em cortes, coloração, tratamentos e estética avançada — resultado com técnica e cuidado.</p>
+  </section>
+
+  <!-- SEÇÃO DO CURSO -->
+  <section id="curso" class="anim">
+    <div class="section-title">Curso Profissional para Cabeleireiras</div>
+    <p class="section-desc">
+      Aprenda técnicas e processos para entregar resultados com mais segurança, consistência e padrão profissional.
+    </p>
+
+    <div class="course interactive" tabindex="0">
+      <div class="course-grid">
+        <div>
+          <div class="course-badges">
+            <span class="badge"><span class="dot"></span> 100% online</span>
+            <span class="badge"><span class="dot"></span> Acesso imediato</span>
+            <span class="badge"><span class="dot"></span> Conteúdo prático</span>
+          </div>
+
+          <h3>Do atendimento ao resultado final — passo a passo para evoluir no salão</h3>
+          <p class="course-lead">
+            Um método direto ao ponto para você organizar seu processo, elevar a qualidade do serviço e ganhar mais confiança
+            na execução (com técnicas e rotinas aplicáveis na prática).
+          </p>
+
+          <ul class="course-list">
+            <li>Diagnóstico e preparação: como evitar erros e aumentar a previsibilidade do resultado</li>
+            <li>Organização de processo: padronização para ganhar tempo e qualidade</li>
+            <li>Técnicas aplicáveis no dia a dia: execução com mais segurança e acabamento</li>
+            <li>Pós-procedimento e fidelização: como orientar e reter clientes</li>
+          </ul>
+
+          <div class="course-ctas">
+            <a class="btn-checkout" href="https://pay.kiwify.com.br/KyA9nHg" target="_blank" rel="noopener noreferrer">
+              Quero me inscrever
+            </a>
+            <a class="btn-form" href="#contato">
+              Tirar dúvidas
+            </a>
+          </div>
+
+          <div class="course-note">
+            Pagamento seguro pela Kiwify • Você será redirecionada para o checkout em nova aba.
+          </div>
+        </div>
+
+        <aside>
+          <div class="course-side-card">
+            <div class="course-side-title">O que você recebe</div>
+            <div class="course-side-items">
+              <div>✅ Aulas com passo a passo</div>
+              <div>✅ Rotina e organização de atendimento</div>
+              <div>✅ Conteúdo prático para aplicar no salão</div>
+              <div>✅ Materiais de apoio (quando disponível)</div>
+            </div>
+
+            <a class="btn-checkout" href="https://pay.kiwify.com.br/KyA9nHg" target="_blank" rel="noopener noreferrer">
+              Ir para o checkout
+            </a>
+
+            <div class="course-side-mini">Link abre em nova aba.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
   </section>
 
   <section id="servicos" class="anim">
@@ -297,8 +542,11 @@
         <p style="color:var(--muted);margin-top:6px">Chame no whats e agende seu horário</p>
       </div>
       <div class="actions">
-        <a class="btn-form" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank">Chamar no WhatsApp</a>
-        <a class="btn-form" href="https://www.instagram.com/nayarabrososki/" target="_blank">Instagram</a>
+        <a class="btn-form" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+        <a class="btn-form" href="https://www.instagram.com/nayarabrososki/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="btn-checkout" href="https://pay.kiwify.com.br/KyA9nHg" target="_blank" rel="noopener noreferrer">
+          Comprar o curso
+        </a>
       </div>
     </div>
   </section>
@@ -315,7 +563,7 @@
   </footer>
 </div>
 
-<a class="wh-fab" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank" aria-label="Chamar no WhatsApp">
+<a class="wh-fab" href="https://wa.me/message/V4ZQSJW4D524K1" target="_blank" rel="noopener noreferrer" aria-label="Chamar no WhatsApp">
   WhatsApp
 </a>
 
@@ -517,7 +765,6 @@
   const nav = document.getElementById('mainNav');
   const indicator = document.getElementById('navIndicator');
   const links = Array.from(nav.querySelectorAll('a'));
-  let activeRect = null;
 
   function moveIndicatorTo(el, instant=false){
     if(!el) { indicator.style.opacity='0'; return; }
@@ -560,14 +807,6 @@
     moveIndicatorTo(active, true);
   });
 })();
-
-/* ------------------------
-   SMALL PERFORMANCE TWEAKS
-   - throttle scroll events used above by passive listeners
-   - images use loading=lazy already
-   ------------------------ */
-
-/* End of scripts */
 </script>
 
 </body>
