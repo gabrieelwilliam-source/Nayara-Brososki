@@ -1,6 +1,6 @@
 ![Preview do projeto](./Nay-capa-Photoroom.png)
 
-Site comercial para salão de beleza com foco em agendamento, apresentação de serviços e conversão por WhatsApp.
+
 # Nayara Brososki
 
 Site comercial para salão de beleza com foco em agendamento, apresentação de serviços e conversão por WhatsApp.
