@@ -5,7 +5,7 @@
 
 Site comercial para salão de beleza com foco em agendamento, apresentação de serviços e conversão por WhatsApp.
 
-## Link ao vivo
+## Link da página
 https://www.nayarabrososki.shop/
 
 ## Sobre o projeto
