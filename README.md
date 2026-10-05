@@ -1,46 +1,79 @@
 ![Preview do projeto](./Nay-capa-Photoroom.png)
 
+# Nayara Brososki — Site Comercial para Salão
 
-# Nayara Brososki
+Landing page/site comercial desenvolvido para um salão de beleza, com foco em **posicionamento de marca, apresentação de serviços e conversão por WhatsApp**.
 
-Site comercial para salão de beleza com foco em agendamento, apresentação de serviços e conversão por WhatsApp.
+## Site publicado
 
-## Link da página
 https://www.nayarabrososki.shop/
 
-## Sobre o projeto
-Este projeto foi desenvolvido para apresentar os serviços do salão Nayara Brososki de forma profissional, responsiva e com foco em conversão.
+## Objetivo
 
-A página reúne:
-- apresentação da marca
-- serviços oferecidos
-- galeria
-- depoimentos
-- curso profissional
-- chamada para agendamento
+Criar uma presença digital profissional para um negócio local e facilitar a transformação de visitantes em contatos e agendamentos.
 
-## Funcionalidades
-- layout responsivo
-- seção de serviços
-- galeria visual
-- depoimentos
-- CTA para agendamento
-- integração com WhatsApp
-- links externos para checkout e redes sociais
+A página foi estruturada para apresentar rapidamente:
 
-## Tecnologias utilizadas
+- marca;
+- serviços;
+- resultados;
+- prova social;
+- curso profissional;
+- chamada para agendamento.
+
+## Principais recursos
+
+- layout responsivo;
+- hero comercial;
+- apresentação de serviços;
+- galeria visual;
+- depoimentos;
+- seção de curso;
+- CTAs para WhatsApp;
+- links para redes sociais;
+- integração com checkout externo;
+- domínio próprio.
+
+## Foco de UX e conversão
+
+O projeto prioriza:
+
+- leitura rápida;
+- hierarquia clara;
+- chamadas de ação visíveis;
+- experiência mobile;
+- apresentação visual do trabalho;
+- redução de atrito para entrar em contato.
+
+## Tecnologias
+
 - HTML
 - CSS
 - JavaScript
+- GitHub Pages
+- domínio personalizado
 
 ## Meu papel no projeto
-Desenvolvimento front-end, estrutura da página, responsividade, organização de conteúdo e publicação.
 
-## Objetivo
-Criar uma presença digital profissional para um negócio local e facilitar o contato com clientes.
+- desenvolvimento front-end;
+- estrutura da página;
+- responsividade;
+- organização de conteúdo;
+- experiência do usuário;
+- integração de CTAs;
+- publicação e configuração do domínio.
 
-## Melhorias futuras
-- SEO
-- otimização de performance
-- analytics
-- refatoração para React ou Next.js
+## O que este projeto demonstra
+
+- criação de landing page para negócio local;
+- adaptação visual à identidade da marca;
+- design responsivo;
+- páginas voltadas à conversão;
+- publicação em produção;
+- integração com canais comerciais.
+
+## Outros projetos do portfólio
+
+- [Landing Page FR Distribuidora](https://github.com/gabrieelwilliam-source/landingpages)
+- [Zion Automações](https://github.com/gabrieelwilliam-source/Site-automacao)
+- [Horizonte Prime](https://github.com/gabrieelwilliam-source/HorizontePrime)
